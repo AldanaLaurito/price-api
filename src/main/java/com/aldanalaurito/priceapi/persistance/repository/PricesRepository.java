@@ -4,6 +4,9 @@ import com.aldanalaurito.priceapi.persistance.entities.PriceEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface PricesRepository extends CrudRepository<PriceEntity, Long> {
+    List<PriceEntity> findAll();
 }
