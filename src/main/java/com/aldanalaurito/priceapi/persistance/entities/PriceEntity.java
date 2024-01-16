@@ -63,7 +63,7 @@ public class PriceEntity {
     @JsonProperty("CURR")
     String curr;
 
-    public boolean fechaDentroDeRango(LocalDateTime fechaABuscar){
-        return (fechaABuscar.isAfter(startDate) && fechaABuscar.isBefore(endDate));
+    public boolean dateIsInsideRange(LocalDateTime date){
+        return (date.isAfter(startDate) && date.isBefore(endDate));
     }
 }
