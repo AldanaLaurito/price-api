@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,10 +30,12 @@ public class PriceEntity {
     @JsonProperty("PRICE_LIST")
     Integer priceList;
 
+    @NotNull
     @Column(name = "BRAND_ID")
     @JsonProperty("BRAND_ID")
     Integer brandId;
 
+    @NotNull
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd-HH:mm:ss")
@@ -40,6 +43,7 @@ public class PriceEntity {
     @JsonProperty("START_DATE")
     LocalDateTime startDate;
 
+    @NotNull
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd-HH:mm:ss")
@@ -47,14 +51,17 @@ public class PriceEntity {
     @JsonProperty("END_DATE")
     LocalDateTime endDate;
 
+    @NotNull
     @Column(name = "PRODUCT_ID")
     @JsonProperty("PRODUCT_ID")
     Long productId;
 
+    @NotNull
     @Column(name = "PRIORITY")
     @JsonProperty("PRIORITY")
     Integer priority;
 
+    @NotNull
     @Column(name = "PRICE")
     @JsonProperty("PRICE")
     BigDecimal price;
@@ -62,8 +69,4 @@ public class PriceEntity {
     @Column(name = "CURR")
     @JsonProperty("CURR")
     String curr;
-
-    public boolean dateIsInsideRange(LocalDateTime date){
-        return (date.isAfter(startDate) && date.isBefore(endDate));
-    }
 }
