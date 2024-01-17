@@ -16,8 +16,9 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.NoSuchElementException;
 
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -63,7 +64,7 @@ class PriceServiceImplTest {
     void obtainPriceList_ok_test_case1(){
         LocalDateTime date = LocalDateTime.parse("2020-06-14T10:00:00", formatter);
 
-        when(repository.findByProductIdAndBrandIdOrderByPriorityDesc(35455L, 1)).thenReturn(priceEntityList);
+        when(repository.findByProductIdAndBrandIdOrderByPriorityDesc(anyLong(), anyInt())).thenReturn(priceEntityList);
 
         ProductPriceResponseDTO priceToApply = Assertions.assertDoesNotThrow(() -> service.obtainProductPriceByDateAndBrand(1,35455L, date));
         Assertions.assertNotNull(priceToApply);
@@ -74,7 +75,7 @@ class PriceServiceImplTest {
     void obtainPriceList_ok_test_case2(){
         LocalDateTime date = LocalDateTime.parse("2020-06-14T16:00:00", formatter);
 
-        when(repository.findByProductIdAndBrandIdOrderByPriorityDesc(35455L, 1)).thenReturn(priceEntityList);
+        when(repository.findByProductIdAndBrandIdOrderByPriorityDesc(anyLong(), anyInt())).thenReturn(priceEntityList);
 
         ProductPriceResponseDTO priceToApply = Assertions.assertDoesNotThrow(() -> service.obtainProductPriceByDateAndBrand(1,35455L, date));
         Assertions.assertNotNull(priceToApply);
@@ -85,7 +86,7 @@ class PriceServiceImplTest {
     void obtainPriceList_ok_test_case3(){
         LocalDateTime date = LocalDateTime.parse("2020-06-14T21:00:00", formatter);
 
-        when(repository.findByProductIdAndBrandIdOrderByPriorityDesc(35455L, 1)).thenReturn(priceEntityList);
+        when(repository.findByProductIdAndBrandIdOrderByPriorityDesc(anyLong(), anyInt())).thenReturn(priceEntityList);
 
         ProductPriceResponseDTO priceToApply = Assertions.assertDoesNotThrow(() -> service.obtainProductPriceByDateAndBrand(1,35455L, date));
         Assertions.assertNotNull(priceToApply);
@@ -96,7 +97,7 @@ class PriceServiceImplTest {
     void obtainPriceList_ok_test_case4(){
         LocalDateTime date = LocalDateTime.parse("2020-06-15T10:00:00", formatter);
 
-        when(repository.findByProductIdAndBrandIdOrderByPriorityDesc(35455L, 1)).thenReturn(priceEntityList);
+        when(repository.findByProductIdAndBrandIdOrderByPriorityDesc(anyLong(), anyInt())).thenReturn(priceEntityList);
 
         ProductPriceResponseDTO priceToApply = Assertions.assertDoesNotThrow(() -> service.obtainProductPriceByDateAndBrand(1,35455L, date));
         Assertions.assertNotNull(priceToApply);
@@ -107,7 +108,7 @@ class PriceServiceImplTest {
     void obtainPriceList_ok_test_case5(){
         LocalDateTime date = LocalDateTime.parse("2020-06-16T21:00:00", formatter);
 
-        when(repository.findByProductIdAndBrandIdOrderByPriorityDesc(35455L, 1)).thenReturn(priceEntityList);
+        when(repository.findByProductIdAndBrandIdOrderByPriorityDesc(anyLong(), anyInt())).thenReturn(priceEntityList);
 
         ProductPriceResponseDTO priceToApply = Assertions.assertDoesNotThrow(() -> service.obtainProductPriceByDateAndBrand(1,35455L, date));
         Assertions.assertNotNull(priceToApply);
@@ -118,19 +119,19 @@ class PriceServiceImplTest {
     void obtainPriceList_error_no_element_found_due_to_date(){
         LocalDateTime date = LocalDateTime.parse("2021-06-16T21:00:00", formatter);
 
-        when(repository.findByProductIdAndBrandIdOrderByPriorityDesc(35455L, 1)).thenReturn(priceEntityList);
+        when(repository.findByProductIdAndBrandIdOrderByPriorityDesc(anyLong(), anyInt())).thenReturn(priceEntityList);
 
         RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> service.obtainProductPriceByDateAndBrand(1,35455L, date));
         Assertions.assertTrue(exception.getMessage().contains("No price list was found"));
     }
 
     @Test
-    void obtainPriceList_error_no_element_found_due_to_brandId(){
+    void obtainPriceList_error_no_element_found_due_to_empty_table(){
         LocalDateTime date = LocalDateTime.parse("2020-06-15T10:00:00", formatter);
 
-        when(repository.findByProductIdAndBrandIdOrderByPriorityDesc(35455L, 2)).thenReturn(List.of());
+        when(repository.findByProductIdAndBrandIdOrderByPriorityDesc(anyLong(), anyInt())).thenReturn(List.of());
 
-        RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> service.obtainProductPriceByDateAndBrand(2,35455L, date));
+        RuntimeException exception = Assertions.assertThrows(RuntimeException.class, () -> service.obtainProductPriceByDateAndBrand(1,35455L, date));
         Assertions.assertTrue(exception.getMessage().contains("No price list was found"));
     }
 }
