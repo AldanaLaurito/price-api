@@ -1,6 +1,6 @@
 package com.aldanalaurito.priceapi.controller.advice;
 
-import com.aldanalaurito.priceapi.dto.ErrorDTO;
+import com.aldanalaurito.priceapi.controller.dto.ErrorDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

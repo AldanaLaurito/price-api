@@ -1,6 +1,6 @@
 package com.aldanalaurito.priceapi.service;
 
-import com.aldanalaurito.priceapi.dto.ProductPriceResponseDTO;
+import com.aldanalaurito.priceapi.controller.dto.ProductPriceResponseDTO;
 import com.aldanalaurito.priceapi.helper.Constants;
 import com.aldanalaurito.priceapi.persistance.entities.PriceEntity;
 import com.aldanalaurito.priceapi.persistance.repository.PricesRepository;

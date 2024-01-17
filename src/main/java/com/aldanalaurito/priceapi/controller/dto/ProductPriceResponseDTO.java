@@ -1,4 +1,4 @@
-package com.aldanalaurito.priceapi.dto;
+package com.aldanalaurito.priceapi.controller.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

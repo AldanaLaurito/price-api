@@ -1,7 +1,7 @@
 package com.aldanalaurito.priceapi.controller;
 
 import com.aldanalaurito.priceapi.controller.advice.PricesControllerAdvice;
-import com.aldanalaurito.priceapi.dto.ProductPriceResponseDTO;
+import com.aldanalaurito.priceapi.controller.dto.ProductPriceResponseDTO;
 import com.aldanalaurito.priceapi.service.PriceServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

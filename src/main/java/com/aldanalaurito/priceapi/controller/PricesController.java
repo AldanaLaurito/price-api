@@ -1,7 +1,7 @@
 package com.aldanalaurito.priceapi.controller;
 
-import com.aldanalaurito.priceapi.dto.ErrorDTO;
-import com.aldanalaurito.priceapi.dto.ProductPriceResponseDTO;
+import com.aldanalaurito.priceapi.controller.dto.ErrorDTO;
+import com.aldanalaurito.priceapi.controller.dto.ProductPriceResponseDTO;
 import com.aldanalaurito.priceapi.helper.Constants;
 import com.aldanalaurito.priceapi.service.PriceServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
