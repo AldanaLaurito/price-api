@@ -13,6 +13,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -66,6 +67,7 @@ public class PriceEntity {
     @JsonProperty("PRICE")
     BigDecimal price;
 
+    @NotEmpty
     @Column(name = "CURR")
     @JsonProperty("CURR")
     String curr;
