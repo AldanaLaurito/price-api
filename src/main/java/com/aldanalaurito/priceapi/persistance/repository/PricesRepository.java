@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface PricesRepository extends CrudRepository<PriceEntity, Long> {
-    List<PriceEntity> findAll();
+    List<PriceEntity> findByProductIdAndBrandId(Long productId, Integer brandId);
 }
