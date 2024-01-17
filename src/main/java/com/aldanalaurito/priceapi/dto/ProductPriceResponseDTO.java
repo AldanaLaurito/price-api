@@ -7,11 +7,13 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -21,6 +23,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Schema(name = "product-price-dto")
 public class ProductPriceResponseDTO {
 
     @JsonProperty("PRODUCT_ID")
@@ -46,4 +49,7 @@ public class ProductPriceResponseDTO {
 
     @JsonProperty("PRICE")
     BigDecimal price;
+
+    @JsonProperty("CURR")
+    String curr;
 }
