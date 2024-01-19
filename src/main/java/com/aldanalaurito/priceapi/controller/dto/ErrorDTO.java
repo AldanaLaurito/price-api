@@ -11,7 +11,7 @@ import lombok.Data;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Schema(name = "error-dto")
 public class ErrorDTO {
-    @JsonProperty("ERROR_DETAIL")
-    @Schema(name = "ERROR_DETAIL")
+    @JsonProperty("error_detail")
+    @Schema(name = "error_detal")
     String errorDetail;
 }
