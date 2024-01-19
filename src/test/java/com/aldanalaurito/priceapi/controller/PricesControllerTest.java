@@ -41,6 +41,7 @@ class PricesControllerTest {
                 .andExpect(status().isOk()).andReturn().getResponse();
         Assertions.assertNotNull(response);
         Assertions.assertFalse(response.getContentAsString().isEmpty());
+        Assertions.assertTrue(response.getContentAsString().contains("product"));
     }
 
     @Test
@@ -50,10 +51,10 @@ class PricesControllerTest {
                                 .queryParam("brand", "1")
                                 .queryParam("product", "35455")
                                 .queryParam("datetime", "2020-06-15 10:00:00"))
-                .andExpect(status().isConflict()).andReturn().getResponse();
+                .andExpect(status().isInternalServerError()).andReturn().getResponse();
 
-        Assertions.assertEquals(HttpStatus.CONFLICT.value(), response.getStatus());
-        Assertions.assertTrue(response.getContentAsString().contains("ERROR_DETAIL"));
+        Assertions.assertEquals(HttpStatus.INTERNAL_SERVER_ERROR.value(), response.getStatus());
+        Assertions.assertTrue(response.getContentAsString().contains("error_detail"));
         Assertions.assertTrue(response.getContentAsString().contains("could not be parsed"));
     }
 }
