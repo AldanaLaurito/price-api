@@ -28,12 +28,12 @@ public class PriceEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "PRICE_LIST")
-    @JsonProperty("PRICE_LIST")
+    @JsonProperty("price_list")
     Integer priceList;
 
     @NotNull
     @Column(name = "BRAND_ID")
-    @JsonProperty("BRAND_ID")
+    @JsonProperty("brand")
     Integer brandId;
 
     @NotNull
@@ -41,7 +41,7 @@ public class PriceEntity {
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd-HH:mm:ss")
     @Column(name = "START_DATE")
-    @JsonProperty("START_DATE")
+    @JsonProperty("start_date")
     LocalDateTime startDate;
 
     @NotNull
@@ -49,26 +49,26 @@ public class PriceEntity {
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd-HH:mm:ss")
     @Column(name = "END_DATE")
-    @JsonProperty("END_DATE")
+    @JsonProperty("end_date")
     LocalDateTime endDate;
 
     @NotNull
     @Column(name = "PRODUCT_ID")
-    @JsonProperty("PRODUCT_ID")
+    @JsonProperty("product")
     Long productId;
 
     @NotNull
     @Column(name = "PRIORITY")
-    @JsonProperty("PRIORITY")
+    @JsonProperty("priority")
     Integer priority;
 
     @NotNull
     @Column(name = "PRICE")
-    @JsonProperty("PRICE")
+    @JsonProperty("price")
     BigDecimal price;
 
     @NotEmpty
     @Column(name = "CURR")
-    @JsonProperty("CURR")
+    @JsonProperty("currency")
     String curr;
 }

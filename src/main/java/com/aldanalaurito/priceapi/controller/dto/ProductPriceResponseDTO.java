@@ -13,7 +13,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -26,30 +25,26 @@ import java.time.LocalDateTime;
 @Schema(name = "product-price-dto")
 public class ProductPriceResponseDTO {
 
-    @JsonProperty("PRODUCT_ID")
-    long productId;
+    long product;
 
-    @JsonProperty("BRAND_ID")
-    int brandId;
+    int brand;
 
-    @JsonProperty("PRICE_LIST")
+    @JsonProperty("price_list")
     Integer priceList;
 
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd-HH:mm:ss")
-    @JsonProperty("START_DATE")
+    @JsonProperty("start_date")
     LocalDateTime startDate;
 
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd-HH:mm:ss")
-    @JsonProperty("END_DATE")
+    @JsonProperty("end_date")
     LocalDateTime endDate;
 
-    @JsonProperty("PRICE")
     BigDecimal price;
 
-    @JsonProperty("CURR")
-    String curr;
+    String currency;
 }
