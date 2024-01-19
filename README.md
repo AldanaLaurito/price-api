@@ -12,7 +12,7 @@ Is developed using Java 11.0.16, Spring 2.7.3 and Gradle 7.4, along with other t
 
 ## Decisions taken
 
-- I implemented the same technologies, datetime formats, architecture and design that I've worked the most with.
+- I implemented the same technologies, datetime formats, architecture and design that I've worked with the most, also because I think they work great for this particular scenario of one simple little api with just one get endpoint and one table. Given a more complex project, and time, I'll have to investigate better all the different architectures and design patterns to choose the best for that case.
 - I used a controller advice, custom exception and an ErrorDTO to handle better the exceptions and, in the case of the NoSuchElementException, to return a specific message to the user.
 - I filter and find the price to apply directly in the jpa query for better performance, avoiding using and iterating lists.
 - I used native query for the repository because I found it worked better and had better readability, and with that maintenance, than not using the query annotation or using a JPA query (I couldn't find a way to get only the first result for the JPA query). Though with this I know I'm exposing the table structure and if another database type is to be used (MySQL, SQL Server, etc.) or the table or column names where changed, the query would have to be changed too, something that is avoid with the other options JPA gives.
